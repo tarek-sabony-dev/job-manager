@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import {
   IconClipboardData,
@@ -30,22 +28,18 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
       title: "History",
-      url: "#",
+      url: "/dashboard/history",
       icon: IconClipboardData,
     }
   ]
 }
 
-interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
-  user?: User
-}
-
-export function AppSidebar({ user, ...props }: AppSidebarProps) {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -67,7 +61,7 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={user ?? data.user} />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   )
